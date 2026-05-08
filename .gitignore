@@ -1,0 +1,44 @@
+# --- OS/IDE ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- Node/Frontend ---
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/publish/
+frontend/.env*
+*.local
+npm-debug.log*
+
+# --- .NET/Backend ---
+[Bb]in/
+[Oo]bj/
+backend/bin/
+backend/obj/
+backend/publish_output/
+backend/TestResults/
+backend/*.db
+backend/*.sqlite
+backend/msbuild.log
+backend/out.log
+backend/*.txt
+
+# SENSITIVE: Ignore actual appsettings but allowed Examples
+backend/appsettings.json
+backend/appsettings.Development.json
+!backend/appsettings.Example.json
+
+# --- Root Scripts & Binaries ---
+acli.exe
+*.py
+scratch/
+Documentation.md
+!README.md

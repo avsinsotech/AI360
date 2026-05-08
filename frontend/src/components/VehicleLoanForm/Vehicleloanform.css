@@ -1,0 +1,551 @@
+/*── Colors (AVS AI360 Branded) ──*/
+:root {
+  --bl-navy: #0e1a40;
+  --bl-accent: #f5a623;
+  --bl-bg: #f8fafc;
+  --bl-border: #e2e8f0;
+  --bl-text-dark: #0f172a;
+  --bl-text-muted: #64748b;
+  --bl-section-bg: #f1f5f9;
+}
+
+.vehicle-loan-wrapper {
+  height: calc(100vh - 175px);
+  background: #f8fafc;
+  font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+  color: var(--bl-text-dark);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Progress Bar ── */
+.bl-progress-bar {
+  background: var(--bl-navy);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-bottom: 3px solid var(--bl-accent);
+}
+.bl-progress-pill {
+  background: var(--bl-accent);
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 13px;
+}
+.bl-progress-label {
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ── Language Switcher ── */
+.bl-lang-switcher {
+  background: rgba(255,255,255,0.1);
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  gap: 2px;
+}
+.bl-lang-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  opacity: 0.6;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.bl-lang-btn.active {
+  opacity: 1;
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+.bl-lang-btn:hover:not(.active) { opacity: 0.8; }
+
+/* ── Form Container ── */
+.vehicle-loan-wrapper .form-container {
+  padding: 12px 12px 0 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.vehicle-loan-wrapper .form-card {
+  background: #ffffff;
+  border: 1px solid var(--bl-border);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.vehicle-loan-wrapper .form-body {
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ── Section UI ── */
+.vehicle-loan-wrapper .section { margin-bottom: 12px; }
+.vehicle-loan-wrapper .section-header {
+  background: #fff7ed !important;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #fed7aa;
+  margin-bottom: 8px;
+}
+.vehicle-loan-wrapper .section-bar {
+  width: 3px;
+  height: 14px;
+  background: #eab308;
+}
+.vehicle-loan-wrapper .section-header h3 {
+  font-size: 13px;
+  font-weight: 800;
+  color: #7c2d12;
+  margin: 0;
+}
+
+.vehicle-loan-wrapper .section-card {
+  background: white;
+  border: 1px solid #fed7aa;
+  border-radius: 0 0 6px 6px;
+  padding: 8px 12px;
+}
+
+/* ── Field Grid ── */
+.vehicle-loan-wrapper .field-grid {
+  display: grid;
+  gap: 12px 24px;
+  padding: 0 10px;
+}
+.vehicle-loan-wrapper .field-grid.cols-1 { grid-template-columns: 1fr; }
+.vehicle-loan-wrapper .field-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.vehicle-loan-wrapper .field-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* ── Field Style ── */
+.vehicle-loan-wrapper .field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.vehicle-loan-wrapper .field label {
+  font-size: 11px;
+  color: #552e1e;
+  font-weight: 600;
+  width: 140px;
+  min-width: 140px;
+  margin: 0;
+  line-height: 1.2;
+}
+.vehicle-loan-wrapper .field input,
+.vehicle-loan-wrapper .field select,
+.vehicle-loan-wrapper .field textarea {
+  flex: 1;
+  border: 1px solid var(--bl-border);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #000;
+  background: #fff;
+  transition: all 0.2s;
+  min-width: 0;
+}
+.vehicle-loan-wrapper .field input:focus,
+.vehicle-loan-wrapper .field textarea:focus {
+  border-color: var(--bl-navy);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(14,26,64,0.05);
+}
+
+/* ── Radio & Checkbox ── */
+.vehicle-loan-wrapper .radio-group,
+.vehicle-loan-wrapper .checkbox-group {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+  flex: 1 !important;
+  align-items: center !important;
+}
+.vehicle-loan-wrapper .radio-item,
+.vehicle-loan-wrapper .cb-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0px !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  color: #000 !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+}
+.vehicle-loan-wrapper .radio-item input,
+.vehicle-loan-wrapper .cb-item input {
+  width: 14px !important;
+  height: 14px !important;
+  margin: 0 !important;
+  accent-color: var(--bl-navy) !important;
+}
+
+/* ── Sub-card ── */
+.vehicle-loan-wrapper .sub-card {
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fbfcfd;
+  margin-bottom: 20px;
+}
+.vehicle-loan-wrapper .sub-card-title {
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--bl-navy);
+  /*text-transform: uppercase;*/
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  display: block;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 6px;
+}
+
+/* ── Photo upload ── */
+.vehicle-loan-wrapper .photo-upload {
+  width: 90px; height: 110px;
+  border: 1.5px dashed var(--bl-border);
+  background: #f9fafb;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  cursor: pointer; position: relative;
+  border-radius: 4px;
+}
+.vehicle-loan-wrapper .photo-upload img { width: 100%; height: 100%; object-fit: cover; }
+.vehicle-loan-wrapper .photo-upload span { font-size: 9px; color: var(--bl-text-muted); text-align: center; margin-top: 4px; }
+
+/* ── Data Table ── */
+.vehicle-loan-wrapper .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.vehicle-loan-wrapper .data-table th {
+  background: var(--bl-section-bg);
+  border: 1px solid var(--bl-border);
+  padding: 6px 10px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 12px;
+}
+.vehicle-loan-wrapper .data-table td {
+  border: 1px solid var(--bl-border);
+  padding: 4px 8px;
+}
+.vehicle-loan-wrapper .data-table td input {
+  width: 100%;
+  border: none;
+  padding: 2px 4px;
+  font-size: 12px;
+  background: transparent;
+}
+.vehicle-loan-wrapper .data-table td input:focus { outline: none; background: #f0f4ff; }
+
+/* ── Custom Data Table (Step 8) ── */
+.vl-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  border: 1px solid #e2e8f0;
+}
+.vl-data-table th {
+  background: #fff7ed !important;
+  color: #7c2d12 !important;
+  border: 1px solid #fed7aa !important;
+  text-align: center;
+  font-weight: 700;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.vl-data-table td {
+  border: 1px solid #e2e8f0;
+  padding: 4px 8px;
+  vertical-align: middle;
+}
+.vl-data-table td input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  color: #334155;
+  background: #fff;
+  box-sizing: border-box;
+}
+.vl-data-table td input:focus {
+  outline: none;
+  border-color: var(--bl-navy);
+  box-shadow: 0 0 0 2px rgba(14,26,64,0.1);
+}
+
+
+
+
+/* ── Navigation Footer ── */
+.vehicle-loan-wrapper .nav-bar {
+  margin-top: auto;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1.5px solid #d1d5db;
+  z-index: 100;
+  box-shadow: 0 -4px 10px -2px rgba(0,0,0,0.08);
+}
+.bl-btn {
+  padding: 8px 24px; border-radius: 6px;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s; border: none;
+}
+.bl-btn-primary { background: var(--bl-navy); color: white; }
+.bl-btn-primary:hover {
+  background: var(--bl-navy);
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14,26,64,0.25);
+}
+.bl-btn-secondary { background: #000000; color: #ffffff; }
+.bl-btn-secondary:hover { background: #111111; }
+.bl-btn-disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Review Page ── */
+.vehicle-loan-wrapper .review-section { margin-bottom: 24px; border: 1px solid var(--bl-border); border-radius: 8px; overflow: hidden; }
+.vehicle-loan-wrapper .review-section h3 { background: #f8fafc; padding: 8px 16px; margin: 0; font-size: 13px; color: var(--bl-navy); border-bottom: 1px solid var(--bl-border); }
+.vehicle-loan-wrapper .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); padding: 12px; gap: 12px; background: white; }
+.vehicle-loan-wrapper .review-item .rv-label { font-size: 10px; color: #64748b; margin-bottom: 2px; text-transform: uppercase; }
+.vehicle-loan-wrapper .review-item .rv-val { font-size: 13px; font-weight: 700; color: #000; }
+
+/* ── Add Guarantor ── */
+.bl-add-guarantor-link {
+  background: none; border: none; padding: 0; color: #2563eb;
+  font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; cursor: pointer;
+}
+.bl-add-guarantor-link:hover { text-decoration: underline; color: #1d4ed8; }
+.bl-delete-guarantor-btn {
+  background: #fee2e2; border: none; color: #ef4444; padding: 6px; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+
+@media print {
+  html, body, #root,
+  .app-container,
+  .main-layout,
+  .content-area,
+  .master-main,
+  .master-content-wrapper,
+  .vehicle-loan-wrapper,
+  .vl-preview-content,
+  .vl-print-area-wrapper {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+    position: static !important;
+    background: white !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+  .no-print { display: none !important; }
+}
+
+/* ── Preview Mode ── */
+.vehicle-loan-wrapper.preview-mode {
+  height: calc(100vh - 175px);
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+.vl-preview-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  padding: 0 24px;
+  background: transparent;
+  flex-shrink: 0;
+  z-index: 10;
+}
+.vl-preview-title {
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  flex: 1;
+}
+.vl-preview-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 40px 10px;
+  display: flex;
+  justify-content: center;
+}
+.vl-print-area-wrapper {
+  background: #ffffff;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 10mm;
+  margin: 0 auto;
+}
+
+/* ── Precise Layout Alignments (Matching Reference Design) ── */
+.v-form-section {
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  border-radius: 6px;
+  padding: 0 0 6px 0;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.v-form-section-header {
+  background: #fff7ed !important;
+  padding: 2px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #fed7aa;
+  margin-bottom: 4px;
+}
+
+.v-form-row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 10px !important;
+  margin-bottom: 4px !important;
+}
+
+.v-form-row:last-child {
+  margin-bottom: 0 !important;
+}
+
+.v-col {
+  flex: 1 1 0% !important;
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+.v-col>.field {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  margin: 0 !important;
+}
+
+/* v-col labels must override the global rule above — needs same or higher specificity */
+.vehicle-loan-wrapper .v-col > .field > label {
+  width: 140px !important;
+  min-width: 140px !important;
+  max-width: 140px !important;
+  flex-shrink: 0 !important;
+  text-align: right !important;
+  padding-right: 6px !important;
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  color: #552e1e !important;
+  white-space: normal !important;
+  line-height: 1.2 !important;
+  box-sizing: border-box !important;
+}
+
+.vehicle-loan-wrapper .v-col > .field > input,
+.vehicle-loan-wrapper .v-col > .field > select,
+.vehicle-loan-wrapper .v-col > .field > textarea {
+  flex: 1 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  padding: 3px 8px !important;
+  font-size: 13px !important;
+}
+
+.v-col>.field>.field-control-wrapper {
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.v-col>.field input,
+.v-col>.field select,
+.v-col>.field textarea,
+.v-col>.field .radio-row,
+.v-col>.field .field-control-wrapper>div {
+  width: 100% !important;
+  max-width: none !important;
+  flex: 1 !important;
+}
+
+.v-col.pb-col1 > .field > label {
+  width: 140px !important;
+}
+
+.v-col.pb-col2 > .field > label {
+  width: 140px !important;
+}
+
+.v-col.pb-col3 > .field > label {
+  width: 140px !important;
+}
+
+/* Tighter label for 3-col rows next to the photo upload */
+.photo-col > .field > label {
+  width: 110px !important;
+  min-width: 110px !important;
+  max-width: 110px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: 10px !important;
+}
+
+/* Ensure rows in photo section all have the same height */
+.photo-section-row {
+  align-items: stretch !important;
+}
+.photo-section-row > .v-col {
+  align-items: flex-start !important;
+}
+.photo-section-row > .v-col > .field {
+  align-items: center !important;
+  height: 100% !important;
+}
+
+/* In PersonBlock, some labels might need to be longer */
+.lbl-med > .field > label {
+  width: 180px !important;
+}
+
+/* Append colons via css to match image precisely */
+.v-col>.field>label::after {
+  content: " :";
+}
+
+.no-colon>.field>label::after {
+  content: "";
+}

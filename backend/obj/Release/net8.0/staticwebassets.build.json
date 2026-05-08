@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "wlRelSs38KkOK29BzBkXojdv6kynkzav7zRhY3dkhAo=",
+  "Source": "TushGptBackend",
+  "BasePath": "_content/TushGptBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

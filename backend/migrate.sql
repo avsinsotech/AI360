@@ -1,0 +1,281 @@
+﻿START TRANSACTION;
+
+DROP TABLE `hl_borrower_info`;
+
+DROP TABLE `hl_business_info`;
+
+DROP TABLE `hl_guarantors`;
+
+DROP TABLE `hl_insurance_tax`;
+
+DROP TABLE `hl_property_info`;
+
+DROP TABLE `home_loan_applications`;
+
+CREATE TABLE `home_loan_requests` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `ClientCode` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `ApplicationDate` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Branch` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MemberNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `LoanAccountNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ApplicantName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ApplicantAge` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CoApplicantName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CoApplicantAge` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `LoanAmountNum` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `LoanAmountWords` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `RepaymentMonths` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `FirstInstalment` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `InstalmentDate` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `LoanPurpose` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MaritalStatus` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `DependentCount` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Guarantor1Name` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Guarantor1Age` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Guarantor2Name` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Guarantor2Age` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Guarantor3Name` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Guarantor3Age` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    CONSTRAINT `PK_home_loan_requests` PRIMARY KEY (`Id`)
+) CHARACTER SET=utf8mb4;
+
+CREATE TABLE `home_loan_borrowers` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `HomeLoanRequestId` int NOT NULL,
+    `FullName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Age` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MemberNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `SharesCount` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `SharesAmount` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `FatherName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `FatherAge` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MotherName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MotherAge` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Address` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PinCode` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Phone` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Mobile` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Email` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ResidenceType` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `StayMonths` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `StayYears` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MaritalStatus` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Dependents` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Company` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CompanyAddress` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CompanyPin` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CompanyTel` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CompanyMobile` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CompanyEmail` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Department` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Designation` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `EmployeeCode` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `JobMonths` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `JobYears` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `RetirementDate` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MonthlySalary` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Deductions` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `NetSalary` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `AnnualIncome` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `AnnualExpenses` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `NetAnnualIncome` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `FamilyIncome` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `FamilyIncomeType` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `LandOwnerName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `LandOwnerRelation` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Village` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Post` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Taluka` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `District` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `State` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `VillagePin` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `VillageMobile` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PrevLoansJson` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `GuarantorLoansJson` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `OtherBankLoansJson` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_home_loan_borrowers` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_home_loan_borrowers_home_loan_requests_HomeLoanRequestId` FOREIGN KEY (`HomeLoanRequestId`) REFERENCES `home_loan_requests` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE TABLE `home_loan_businesses` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `HomeLoanRequestId` int NOT NULL,
+    `BusinessNature` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessType` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessPremisesType` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessArea` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessFirmName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessAddress` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessPin` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessPhone` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessEmail` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessPan` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `GumastaNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `SalesTaxNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `VatNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ServiceTaxNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `LicenseObtained` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `TaxRegistered` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessStartDate` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessExperience` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessAnnualIncome` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessAnnualExpenses` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BusinessNetIncome` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CustomersJson` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `SuppliersJson` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_home_loan_businesses` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_home_loan_businesses_home_loan_requests_HomeLoanRequestId` FOREIGN KEY (`HomeLoanRequestId`) REFERENCES `home_loan_requests` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE TABLE `home_loan_guarantors` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `HomeLoanRequestId` int NOT NULL,
+    `GuarantorNumber` int NOT NULL,
+    `FullName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Age` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MemberNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `SharesCount` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `SharesAmount` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `FatherName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `FatherAge` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MotherName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MotherAge` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Address` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PinCode` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Phone` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Mobile` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Email` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Company` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CompanyAddress` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Department` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Designation` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `EmployeeCode` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `JobMonths` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `JobYears` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `RetirementDate` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MonthlySalary` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `NetSalary` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `AnnualIncome` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Village` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Post` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Taluka` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `District` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `State` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_home_loan_guarantors` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_home_loan_guarantors_home_loan_requests_HomeLoanRequestId` FOREIGN KEY (`HomeLoanRequestId`) REFERENCES `home_loan_requests` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE TABLE `home_loan_insurances` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `HomeLoanRequestId` int NOT NULL,
+    `InsuranceCompany` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `InsuranceAddress` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `InsurancePolicyNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `InsuranceFrom` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `InsuranceTo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `InsuranceAmount` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `InsurancePremium` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `InsurancePremiumType` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PolicyLoan` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PolicyLoanBank` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PolicyLoanAddress` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PolicyLoanAmount` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PolicyLoanDate` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PolicyLoanBalance` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PanNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `IncomeTaxSince` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `TaxRowsJson` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ProfTaxNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ProfTaxSince` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ProfTaxRowsJson` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_home_loan_insurances` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_home_loan_insurances_home_loan_requests_HomeLoanRequestId` FOREIGN KEY (`HomeLoanRequestId`) REFERENCES `home_loan_requests` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE TABLE `home_loan_properties` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `HomeLoanRequestId` int NOT NULL,
+    `PropertyType` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `VendorName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PropertyAddress` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `HousingSocietyName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `FlatNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Floor` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Wing` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PlotNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `NagarSector` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `RoadName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Suburb` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `District` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `PinCode` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `HousingRegNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `HousingMemberNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ShareCertNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `SharesFrom` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `SharesTo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Area` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `AreaType` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BoundaryEast` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BoundaryWest` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BoundarySouth` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BoundaryNorth` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BuildingYear` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `SurveyNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `HissaNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `GatNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MunicipalNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `OcReceived` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `OcDate` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConveyanceDeed` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConveyanceDeedDate` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `TotalPurchasePrice` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `AmountPaid` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BalancePayable` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MortgageDetails` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `GovtValuation` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MarketValuation` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BuilderFirmName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `UnderConstrAddress` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `BuildingPlanApproved` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstructionNature` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstArea` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstAreaType` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstBoundaryEast` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstBoundaryWest` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstBoundarySouth` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstBoundaryNorth` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstPlotNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstSurveyNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstGatNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstHissaNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstMunicipalNo` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `AgreementDate` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `StampDuty` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `RegistrationAmount` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstTotalPrice` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstAmountPaid` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `ConstBalancePayable` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `CollateralJson` longtext CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_home_loan_properties` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_home_loan_properties_home_loan_requests_HomeLoanRequestId` FOREIGN KEY (`HomeLoanRequestId`) REFERENCES `home_loan_requests` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE UNIQUE INDEX `IX_home_loan_borrowers_HomeLoanRequestId` ON `home_loan_borrowers` (`HomeLoanRequestId`);
+
+CREATE UNIQUE INDEX `IX_home_loan_businesses_HomeLoanRequestId` ON `home_loan_businesses` (`HomeLoanRequestId`);
+
+CREATE INDEX `IX_home_loan_guarantors_HomeLoanRequestId` ON `home_loan_guarantors` (`HomeLoanRequestId`);
+
+CREATE UNIQUE INDEX `IX_home_loan_insurances_HomeLoanRequestId` ON `home_loan_insurances` (`HomeLoanRequestId`);
+
+CREATE UNIQUE INDEX `IX_home_loan_properties_HomeLoanRequestId` ON `home_loan_properties` (`HomeLoanRequestId`);
+
+CREATE INDEX `IX_home_loan_requests_ClientCode` ON `home_loan_requests` (`ClientCode`);
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20260325072549_AddNewHomeLoanSchema', '8.0.2');
+
+COMMIT;
+

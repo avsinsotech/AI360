@@ -1,0 +1,510 @@
+:root {
+  --pl-navy: #0e1a40;
+  --pl-navy-light: #f0f7ff;
+  --pl-yellow: #fdb913;
+  --pl-border: #d1d5db;
+  --pl-text-dark: #111827;
+  --pl-text-muted: #6b7280;
+  --pl-bg: #ffffff;
+}
+
+.personal-loan-wrapper {
+  background: #f1f5f9;
+  font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+  color: var(--pl-text-dark);
+}
+
+/* ── Header ── */
+.personal-loan-wrapper .app-header {
+  background: var(--pl-navy);
+  color: white;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.personal-loan-wrapper .app-header .logo-circle {
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pl-navy);
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.personal-loan-wrapper .app-header .title-area {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.personal-loan-wrapper .app-header .title-area p {
+  font-size: 11px;
+  margin: 2px 0 0 0;
+  opacity: 0.9;
+}
+
+/* ── Progress/Stepper Indicator ── */
+.pl-progress-bar {
+  background: #1e3a8a;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pl-progress-pill {
+  background: var(--pl-yellow);
+  color: #000;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.pl-progress-label {
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ── Language Switcher ── */
+.pl-lang-switcher {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  gap: 2px;
+}
+
+.pl-lang-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  opacity: 0.6;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pl-lang-btn.active {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* ── Form Layout ── */
+.personal-loan-wrapper .form-container {
+  padding: 12px 12px 0 12px;
+}
+
+.personal-loan-wrapper .form-content {
+  background: white;
+  border: 1px solid var(--pl-border);
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 175px);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  position: relative;
+}
+
+.personal-loan-wrapper .form-body {
+  padding: 16px;
+  flex: 1;
+}
+
+/* ── Section Header ── */
+.personal-loan-wrapper .section {
+  background: white;
+  margin-bottom: 8px;
+}
+
+.personal-loan-wrapper .section-header {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+  border: 1px solid #e2e8f0;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.personal-loan-wrapper .section:first-child .section-header {
+  margin-top: 0;
+}
+
+.personal-loan-wrapper .section-bar {
+  width: 3px;
+  height: 18px;
+  background: var(--pl-navy);
+}
+
+.personal-loan-wrapper .section-header h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+/* ── Fields & Grid ── */
+.personal-loan-wrapper .section-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0 0 8px 8px;
+  /* overflow: hidden; */
+}
+
+.personal-loan-wrapper .section-row {
+  display: grid;
+  padding: 12px 16px;
+  gap: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.personal-loan-wrapper .section-row:last-child {
+  border-bottom: none;
+}
+
+.personal-loan-wrapper .grid {
+  display: grid;
+  gap: 16px;
+  padding: 12px 16px;
+}
+
+.personal-loan-wrapper .grid.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.personal-loan-wrapper .grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.personal-loan-wrapper .grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.personal-loan-wrapper .grid.cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.personal-loan-wrapper .field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.personal-loan-wrapper .field>label {
+  font-size: 13px;
+  color: #000;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* v-col labels must override the global rule above — needs same or higher specificity */
+.personal-loan-wrapper .v-col > .field > label {
+  width: 140px !important;
+  min-width: 140px !important;
+  max-width: 140px !important;
+  flex-shrink: 0 !important;
+  text-align: right !important;
+  padding-right: 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #552e1e !important;
+  white-space: normal !important;
+  line-height: 1.2 !important;
+  box-sizing: border-box !important;
+}
+
+.personal-loan-wrapper .v-col > .field > input,
+.personal-loan-wrapper .v-col > .field > select,
+.personal-loan-wrapper .v-col > .field > textarea {
+  flex: 1 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Base styles for ALL inputs in the form */
+.personal-loan-wrapper .field input,
+.personal-loan-wrapper .field select,
+.personal-loan-wrapper .field textarea {
+  flex: 1;
+  border: 1px solid var(--pl-border);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 13px;
+  outline: none;
+  background: #fff;
+  min-width: 0;
+  width: 100%;
+}
+.personal-loan-wrapper .field input:focus {
+  border-color: var(--pl-navy);
+}
+
+/* ── Radio & Checkbox Groups ── */
+.personal-loan-wrapper .radio-group,
+.personal-loan-wrapper .checkbox-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.personal-loan-wrapper .radio-item,
+.personal-loan-wrapper .cb-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.personal-loan-wrapper .radio-item input,
+.personal-loan-wrapper .cb-item input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--pl-navy);
+}
+
+/* ── Specific Styles ── */
+.personal-loan-wrapper .photo-upload {
+  width: 90px;
+  height: 110px;
+  border: 1px dashed var(--pl-border);
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.personal-loan-wrapper .photo-upload img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.personal-loan-wrapper .photo-upload span {
+  font-size: 9px;
+  color: var(--pl-text-muted);
+  text-align: center;
+}
+
+/* ── Footer / Navigation ── */
+.personal-loan-wrapper .nav-bar {
+  margin-top: auto;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1.5px solid #d1d5db;
+  z-index: 100;
+}
+
+.personal-loan-wrapper .btn-back {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.personal-loan-wrapper .btn-next {
+  background: var(--pl-navy);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.personal-loan-wrapper .sub-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.personal-loan-wrapper .sub-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+}
+
+.add-guarantor-link {
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin: 10px 16px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ── Precise Layout Alignments (Matching Reference Design) ── */
+.v-form-section {
+  background: #fcfaf5;
+  border: 1px solid #fcebb6;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.v-form-row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
+  margin-bottom: 12px !important;
+}
+
+.v-form-row:last-child {
+  margin-bottom: 0 !important;
+}
+
+.v-col {
+  flex: 1 1 0% !important;
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+.v-col>.field {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  margin: 0 !important;
+}
+
+/* Handled above with .personal-loan-wrapper prefix for specificity */
+.v-col > .field > label {
+  width: 140px !important;
+  flex-shrink: 0 !important;
+  text-align: right !important;
+  padding-right: 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #552e1e !important;
+  white-space: normal !important;
+  line-height: 1.2 !important;
+}
+
+.v-col>.field>.field-control-wrapper {
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.v-col>.field input,
+.v-col>.field select,
+.v-col>.field textarea,
+.v-col>.field .radio-row,
+.v-col>.field .field-control-wrapper>div {
+  width: 100% !important;
+  max-width: none !important;
+  flex: 1 !important;
+}
+
+.v-col.pb-col1 > .field > label {
+  width: 140px !important;
+}
+
+.v-col.pb-col2 > .field > label {
+  width: 140px !important;
+}
+
+.v-col.pb-col3 > .field > label {
+  width: 140px !important;
+}
+
+/* Tighter label for 3-col rows next to the photo upload */
+.photo-col > .field > label {
+  width: 110px !important;
+  min-width: 110px !important;
+  max-width: 110px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: 10px !important;
+}
+
+/* Ensure rows in photo section all have the same height */
+.photo-section-row {
+  align-items: stretch !important;
+}
+.photo-section-row > .v-col {
+  align-items: flex-start !important;
+}
+.photo-section-row > .v-col > .field {
+  align-items: center !important;
+  height: 100% !important;
+}
+
+/* In PersonBlock, some labels might need to be longer */
+.lbl-med > .field > label {
+  width: 180px !important;
+}
+
+/* Append colons via css to match image precisely */
+.v-col>.field>label::after {
+  content: " :";
+}
+
+.no-colon>.field>label::after {
+  content: "";
+}
+
+.delete-guarantor-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-guarantor-btn:hover {
+  background: #fee2e2;
+  transform: scale(1.1);
+}

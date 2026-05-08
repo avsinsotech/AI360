@@ -1,0 +1,366 @@
+/* 
+   Customer Account Creation Form: Simplified Page View
+   OPTIMIZED FOR HIGH DENSITY (NO SCROLL)
+*/
+
+:root {
+  --form-bg: var(--bg-primary);
+  --form-text: var(--text-primary);
+  --form-label: var(--text-secondary);
+  --form-border: var(--border-color);
+  --form-input-bg: var(--bg-input);
+  --form-font: 'Inter', sans-serif;
+}
+
+.caf-page-container {
+  background: var(--form-bg);
+  height: 100vh; /* Fixed height to prevent page scrolling */
+  display: flex;
+  flex-direction: column;
+  animation: caf-fade-in 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes caf-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.caf-page-header {
+  padding: 0.75rem 1.5rem; /* Reduced padding */
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.caf-page-header h2 {
+  font-size: 1.1rem; /* Slightly smaller */
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.caf-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-modal);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.caf-back-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-input);
+  color: var(--text-primary);
+}
+
+.caf-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #9ca3af;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+/* Stepper - Compact */
+.caf-stepper {
+  display: flex;
+  padding: 0.75rem 1.5rem; /* Reduced padding */
+  background: var(--bg-modal);
+  border-bottom: 1px solid var(--border-color);
+  justify-content: center; /* Centered for better balance */
+  gap: 2rem;
+  flex-shrink: 0;
+}
+
+.caf-step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.caf-step-item.active {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.caf-step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.caf-step-item.active .caf-step-num {
+  background: #2563eb;
+  color: white;
+}
+
+/* Form Content */
+.caf-content {
+  flex: 1;
+  padding: 1rem 1.5rem; /* Significant reduction */
+  overflow-y: auto; /* Scroll only inside the content if needed */
+  background: var(--bg-primary);
+}
+
+.document-page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Reduced gap */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.doc-section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.doc-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Auto grid */
+  gap: 0.75rem;
+}
+
+/* Specific grids for high density */
+.doc-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.doc-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.doc-input-wrap label {
+  display: block;
+  font-size: 0.75rem; /* Smaller labels */
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.doc-input {
+  width: 100%;
+  padding: 0.45rem 0.6rem; /* Smaller padding */
+  border: 1px solid var(--form-border);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: var(--bg-input);
+  color: var(--text-primary);
+}
+
+.doc-input:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Fee Grid Optimized */
+.doc-fee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns instead of 2 */
+  gap: 0.75rem;
+  background: var(--bg-modal);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.fee-row {
+  display: flex;
+  flex-direction: column; /* Label on top for better fit */
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.fee-row label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Compact Checkboxes */
+.doc-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 0.5rem;
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.4rem;
+  background: var(--bg-modal);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* Photo Box Size */
+.doc-photo-box {
+  width: 90px !important;
+  height: 105px !important;
+  flex-shrink: 0;
+}
+
+/* Sig Card Compact */
+.doc-sig-card {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  background: var(--bg-modal);
+}
+
+.sig-card-title {
+  background: var(--bg-secondary);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.sig-card-body {
+  padding: 0.75rem 1rem;
+}
+
+.sig-h-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.sig-sample-area {
+  height: 60px; /* Shorter */
+  background: var(--bg-input);
+  border: 1px dashed var(--border-color);
+  margin-top: 0.5rem;
+}
+
+/* Footer - Slim */
+.caf-footer {
+  padding: 0.75rem 1.5rem; /* Reduced */
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  background: var(--bg-modal);
+  flex-shrink: 0;
+}
+
+.caf-btn {
+  padding: 0.5rem 1rem; /* Smaller */
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.caf-btn-primary {
+  background: #000000;
+  color: white;
+  border: 1px solid #000000;
+}
+
+.caf-btn-success {
+  background: #000000;
+  color: white;
+  border: 1px solid #000000;
+}
+
+.caf-btn-secondary {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.caf-btn-teal {
+  background: #0d9488;
+  color: white;
+  border: 1px solid #0d9488;
+}
+
+.caf-btn-teal:hover {
+  background: #0f766e;
+}
+
+@media (max-height: 800px) {
+  .caf-content { padding: 0.5rem 1rem; }
+  .document-page { gap: 0.5rem; }
+}
+
+/* Validation Styles */
+.error-text {
+  color: #dc2626;
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-top: 2px;
+  animation: caf-error-slide 0.2s ease-out;
+}
+
+@keyframes caf-error-slide {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.invalid-input {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+}
+
+.invalid-input:focus {
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1) !important;
+}
+
+.required-mark {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .doc-grid-4,
+  .doc-fee-grid,
+  .doc-docs-grid,
+  .sig-h-grid {
+    grid-template-columns: 1fr;
+  }
+  .caf-stepper {
+    gap: 0.5rem;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  .caf-step-item span {
+    display: none;
+  }
+  .caf-step-item.active span {
+    display: inline;
+  }
+}
+

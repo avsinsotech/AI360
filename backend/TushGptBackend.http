@@ -1,0 +1,6 @@
+@TushGptBackend_HostAddress = http://localhost:5118
+
+GET {{TushGptBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

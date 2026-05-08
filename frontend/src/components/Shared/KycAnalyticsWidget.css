@@ -1,0 +1,137 @@
+.kyc-analytics-card {
+  background: var(--bg-modal);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+  min-height: 0;
+  justify-content: center; /* Center content when stretched */
+}
+
+.kyc-card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.kyc-analytics-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.kyc-pie-container {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.kyc-legend-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.kyc-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+  margin-left: auto;
+}
+
+.k-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.k-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.k-val {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.kyc-analytics-bottom {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  background: var(--bg-secondary);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+.kyc-bottom-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.k-val-lg {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.kyc-trend-chart {
+  flex: 2;
+  position: relative;
+}
+
+.kyc-trend-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  margin-top: 4px;
+}
+
+.kyc-trend-labels span {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .kyc-analytics-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .kyc-stats-grid {
+    margin-left: 0;
+  }
+  .kyc-analytics-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kyc-bottom-stats {
+    flex-wrap: wrap;
+  }
+}
